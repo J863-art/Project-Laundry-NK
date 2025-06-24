@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pesanan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#fff7f7] min-h-screen p-4">
+  <div class="max-w-md mx-auto bg-[#db2e6f] rounded-t-md p-5">
+    <h1 class="text-white text-xl font-bold">Pesanan</h1>
+  </div>
+  <div class="max-w-md mx-auto bg-white rounded-b-md p-4 space-y-4">
+    <div class="flex gap-2 mb-2">
+      <button
+        class="bg-[#db2e6f] text-white text-xs font-semibold rounded-full px-4 py-1"
+        type="button"
+      >
+        Semua
+      </button>
+      <button
+        class="bg-[#f9f9f9] text-[#4a4a4a] text-xs rounded-full px-4 py-1"
+        type="button"
+      >
+        Sedang Diproses
+      </button>
+      <button
+        class="bg-[#f9f9f9] text-[#4a4a4a] text-xs rounded-full px-4 py-1"
+        type="button"
+      >
+        Belum Diproses
+      </button>
+      <button
+        class="bg-[#f9f9f9] text-[#4a4a4a] text-xs rounded-full px-4 py-1"
+        type="button"
+      >
+        Pesanan Selesai
+      </button>
+    </div>
+
+    <!-- Order 1 -->
+    <div class="bg-[#fff7f7] rounded-lg p-4 space-y-3">
+      <h2 class="font-bold text-[#4a4a4a] text-base">
+        Pesanan <span class="font-normal">#ORD- 3004</span>
+      </h2>
+      <p class="text-xs text-[#4a4a4a]">Tanggal Masuk : 30 April 2025</p>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-user"></i>
+          <div>
+            <p class="font-normal">Siti Aminah</p>
+            <p class="text-xs font-normal">0822-6576-9856</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-box"></i>
+          <p class="font-normal">Cuci + Lipat</p>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-weight-hanging"></i>
+          <p class="font-normal">10 Kg</p>
+        </div>
+        <div class="flex items-center justify-end gap-2 text-[#4a4a4a] text-xs">
+          <div class="flex items-center gap-1">
+            <i class="fas fa-calendar-alt"></i>
+            <p class="font-semibold">Estimasi Selesai</p>
+          </div>
+        </div>
+        <div class="flex justify-end text-xs text-[#4a4a4a]">
+          <p>04 Mei 2025 16:00</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button
+          class="bg-[#db2e6f] text-white text-xs font-semibold rounded-full px-6 py-1"
+          type="button"
+        >
+          Diproses
+        </button>
+      </div>
+    </div>
+
+    <!-- Order 2 -->
+    <div class="bg-[#fff7f7] rounded-lg p-4 space-y-3">
+      <h2 class="font-bold text-[#4a4a4a] text-base">
+        Pesanan <span class="font-normal">#ORD- 2304</span>
+      </h2>
+      <p class="text-xs text-[#4a4a4a]">Tanggal Masuk : 23 April 2025</p>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-user"></i>
+          <div>
+            <p class="font-normal">Alyah putri</p>
+            <p class="text-xs font-normal">0812-4567-8523</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-box"></i>
+          <p class="font-normal">Cuci + Setrika</p>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-weight-hanging"></i>
+          <p class="font-normal">5 Kg</p>
+        </div>
+        <div class="flex items-center justify-end gap-2 text-[#4a4a4a] text-xs">
+          <div class="flex items-center gap-1">
+            <i class="fas fa-calendar-alt"></i>
+            <p class="font-semibold">Estimasi Selesai</p>
+          </div>
+        </div>
+        <div class="flex justify-end text-xs text-[#4a4a4a]">
+          <p>29 April 2025 15:00</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button
+          class="bg-[#d9f3e6] text-[#3a9d6d] text-xs font-semibold rounded-full px-6 py-1"
+          type="button"
+        >
+          Siap Diambil
+        </button>
+      </div>
+    </div>
+
+    <!-- Order 3 -->
+    <div class="bg-[#fff7f7] rounded-lg p-4 space-y-3">
+      <h2 class="font-bold text-[#4a4a4a] text-base">
+        Pesanan <span class="font-normal">#ORD- 2203</span>
+      </h2>
+      <p class="text-xs text-[#4a4a4a]">Tanggal Masuk : 22 Maret 2025</p>
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-user"></i>
+          <div>
+            <p class="font-normal">Steven Benzamin</p>
+            <p class="text-xs font-normal">0853-4356-9846</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-box"></i>
+          <p class="font-normal">Cuci + Setrika Express</p>
+        </div>
+        <div class="flex items-center gap-2 text-[#4a4a4a] text-sm">
+          <i class="fas fa-weight-hanging"></i>
+          <p class="font-normal">3 Kg</p>
+        </div>
+        <div class="flex items-center justify-end gap-2 text-[#4a4a4a] text-xs">
+          <div class="flex items-center gap-1">
+            <i class="fas fa-calendar-alt"></i>
+            <p class="font-semibold">Estimasi Selesai</p>
+          </div>
+        </div>
+        <div class="flex justify-end text-xs text-[#4a4a4a]">
+          <p>28 Maret 2025 17:00</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button
+          class="bg-[#a9c9cc] text-[#1a2e2f] text-xs font-bold rounded-full px-6 py-1"
+          type="button"
+        >
+          Selesai
+        </button>
+      </div>
+    </div>
+
+    <!-- Order 4 -->
+    <div class="bg-[#fff7f7] rounded-lg p-4 space-y-1">
+      <h2 class="font-bold text-[#4a4a4a] text-base">
+        Pesanan <span class="font-normal">#ORD- 2003</span>
+      </h2>
+      <p class="text-xs text-[#4a4a4a]">Tanggal Masuk : 20 Maret 2025</p>
+    </div>
+  </div>
+</body>
+</html>

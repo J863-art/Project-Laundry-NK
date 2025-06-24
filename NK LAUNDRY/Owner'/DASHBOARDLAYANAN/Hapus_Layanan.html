@@ -1,0 +1,194 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Layanan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-[#d92f6a] flex items-center justify-between px-5 py-4">
+   <h1 class="text-white font-extrabold text-xl">
+    Layanan
+   </h1>
+   <button aria-label="Menu" class="text-white text-3xl focus:outline-none">
+    <i class="fas fa-bars">
+    </i>
+   </button>
+  </header>
+  <!-- Image -->
+  <div class="relative w-full">
+   <img alt="Laundry machine door open with hands putting blue clothes inside" class="w-full object-cover" height="200" src="https://storage.googleapis.com/a1aa/image/113ca237-9bb1-4dff-d5c4-56d021d6df83.jpg" width="600"/>
+  </div>
+  <!-- Confirmation Modal -->
+  <div aria-describedby="confirm-desc" aria-labelledby="confirm-title" aria-modal="true" class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg w-11/12 max-w-sm p-5 z-20" role="alertdialog">
+   <div class="flex justify-center mb-2 text-xl text-gray-700">
+    <span>
+     ⚠️
+    </span>
+   </div>
+   <h2 class="text-center text-blue-700 font-semibold mb-3 cursor-pointer" id="confirm-title">
+    Konfirmasi
+   </h2>
+   <p class="text-center text-gray-600 mb-5 px-3 leading-relaxed" id="confirm-desc">
+    Apakah anda yakin ingin menghapus transaksi ini
+   </p>
+   <div class="flex justify-center gap-6">
+    <button class="bg-[#d92f6a] text-white font-semibold rounded-full px-6 py-1.5 text-sm hover:bg-[#c1275f] transition">
+     Ya
+    </button>
+    <button class="bg-[#d92f6a] text-white font-semibold rounded-full px-6 py-1.5 text-sm hover:bg-[#c1275f] transition">
+     Batal
+    </button>
+   </div>
+  </div>
+  <!-- Services List -->
+  <main class="flex-grow px-4 pt-4 pb-10 space-y-3 relative z-10">
+   <ul class="space-y-3">
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Baju
+     </span>
+    </span>
+    <div class="flex items-center space-x-2">
+     <span class="text-gray-700">
+      Rp20.000
+     </span>
+     <div class="flex items-center space-x-2">
+      <button aria-label="Edit Cuci Baju" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Baju" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Boneka
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Boneka" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Boneka" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Celana
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Celana" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Celana" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Gorden
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Gorden" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Gorden" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Tas
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Tas 1" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Tas 1" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Tas
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Tas 2" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Tas 2" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+    <li class="flex items-center justify-between border border-gray-300 rounded-lg px-4 py-2">
+     <span class="italic font-semibold text-gray-700">
+      Cuci Tas
+     </span>
+     <div class="flex items-center space-x-2">
+      <span class="text-gray-700">
+       Rp20.000
+      </span>
+      <button aria-label="Edit Cuci Tas 3" class="text-gray-700 hover:text-gray-900 focus:outline-none">
+       <i class="fas fa-edit">
+       </i>
+      </button>
+      <button aria-label="Delete Cuci Tas 3" class="text-[#d92f6a] hover:text-[#c1275f] focus:outline-none">
+       <i class="fas fa-trash">
+       </i>
+      </button>
+     </div>
+    </li>
+   </ul>
+   <div class="mt-8 flex justify-center">
+    <button class="bg-[#d92f6a] text-white font-semibold italic rounded-full px-8 py-2 text-base hover:bg-[#c1275f] transition">
+     Tambah Layanan
+    </button>
+   </div>
+  </main>
+ </body>
+</html>

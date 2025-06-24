@@ -1,0 +1,115 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ENKA Laundry Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#fcf6f6] min-h-screen flex justify-center items-start p-4">
+  <div class="w-full max-w-md">
+    <!-- Header -->
+    <header class="bg-[#d72f6e] flex justify-between items-center px-6 py-5">
+      <div class="flex items-center space-x-3">
+        <i class="fas fa-user-circle text-white text-3xl"></i>
+        <div>
+          <h1 class="text-white font-extrabold text-lg leading-none">ENKA Laundry</h1>
+          <p class="text-white text-sm font-normal leading-tight">Owner</p>
+        </div>
+      </div>
+      <button aria-label="Menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Cards grid -->
+    <section class="grid grid-cols-2 gap-4 mt-4">
+      <div class="bg-white rounded-xl p-4">
+        <p class="text-sm font-normal mb-1">Pesanan Hari Ini</p>
+        <p class="font-extrabold text-2xl leading-none mb-1">20</p>
+        <p class="text-xs text-[#b33a2a] font-normal">-2% dari kemarin</p>
+      </div>
+      <div class="bg-white rounded-xl p-4">
+        <p class="text-sm font-normal mb-1">Pendapatan Hari Ini</p>
+        <p class="font-extrabold text-2xl leading-none mb-1">Rp1.000.000</p>
+        <p class="text-xs text-[#2a7b2a] font-normal">+12% dari kemarin</p>
+      </div>
+      <div class="bg-white rounded-xl p-4">
+        <p class="text-sm font-normal mb-1">Pesanan Dalam Proses</p>
+        <p class="font-extrabold text-2xl leading-none mb-1">6</p>
+        <p class="text-xs text-[#d18f4a] font-normal">3 menunggu diantar</p>
+      </div>
+      <div class="bg-white rounded-xl p-4">
+        <p class="text-sm font-normal mb-1">Pelanggan Baru</p>
+        <p class="font-extrabold text-2xl leading-none mb-1">7</p>
+        <p class="text-xs text-[#2a7b2a] font-normal">+4 bulan ini</p>
+      </div>
+    </section>
+
+    <!-- Pesanan Terbaru -->
+    <section class="bg-white rounded-xl p-6 mt-6">
+      <h2 class="font-extrabold text-lg mb-4">Pesanan Terbaru</h2>
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0">
+        <div>
+          <p class="font-extrabold text-base leading-none">Cheryl Calsita</p>
+          <p class="text-gray-600 text-sm">#ORD-3004</p>
+        </div>
+        <span class="bg-[#e6f0ef] text-[#5a7a77] text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap self-start sm:self-auto">Diproses</span>
+        <p class="font-extrabold text-base leading-none">Rp30.000</p>
+      </div>
+    </section>
+
+    <!-- Grafik Minggu Ini -->
+    <section class="bg-white rounded-xl p-6 mt-6">
+      <h2 class="font-extrabold text-lg mb-6">Grafik Minggu Ini</h2>
+      <div class="flex items-end justify-between space-x-3 mb-6">
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-16"></div>
+          <span class="text-gray-600 text-xs">Sen</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-20"></div>
+          <span class="text-gray-600 text-xs">Sel</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-24"></div>
+          <span class="text-gray-600 text-xs">Rab</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-28"></div>
+          <span class="text-gray-600 text-xs">Kam</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-32"></div>
+          <span class="text-gray-600 text-xs">Jum</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-36"></div>
+          <span class="text-gray-600 text-xs">Sab</span>
+        </div>
+        <div class="flex flex-col items-center space-y-1">
+          <div class="bg-[#5f7ed9] rounded-t-xl w-8 h-40"></div>
+          <span class="text-gray-600 text-xs">Kam</span>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <p class="font-normal text-base">Total Minggu Ini</p>
+        <p class="font-extrabold text-lg">Rp500.000</p>
+        <p class="text-[#2a7b2a] font-semibold text-sm">+12,5%</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

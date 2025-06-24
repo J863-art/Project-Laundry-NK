@@ -1,0 +1,78 @@
+public function create()
+    {
+        // Ambil nama dan no_telp agar bisa ditampilkan lengkap
+        $customers = Customer::select('full_name', 'phone_number')->get();
+        $layanans = Layanan::all();
+
+        return view('login.kasir.input', compact('customers', 'layanans'));
+    }
+
+    public function store(Request $request)
+{
+    try {
+        $request->validate([
+            'nama_pelanggan' => 'required|string',
+            'no_telepon' => 'required|string',
+            'layanann_id' => 'required|exists:layanann,id', // ambil dari dropdown
+            'berat' => 'nullable|numeric',
+            'jumlah_satuan' => 'nullable|integer',
+            'jumlah_sepatu' => 'nullable|integer',
+            'jumlah_lainnya' => 'nullable|integer',
+            'status_pembayaran' => 'required|in:belum_lunas,lunas',
+            'status' => 'required|in:belum_diproses,sedang_diproses,selesai',
+            'estimasi_selesai' => 'required|date',
+        ]);
+
+        // Ambil customer
+        $customer = Customer::where('full_name', $request->nama_pelanggan)->first();
+        if (!$customer) {
+            return back()->withErrors(['nama_pelanggan' => 'Customer tidak ditemukan.']);
+        }
+
+        // Ambil layanan
+        $layanan = Layanan::findOrFail($request->layanann_id);
+
+        // Hitung harga berdasarkan jenis layanan
+        $harga_total = 0;
+        if ($layanan->jenis == 'Laundry_Kiloan' && $request->berat) {
+            $harga_total = $layanan->harga * $request->berat;
+        } elseif ($layanan->jenis == 'Laundry_Satuan' && $request->jumlah_satuan) {
+            $harga_total = $layanan->harga * $request->jumlah_satuan;
+        } elseif ($layanan->jenis == 'Laundry_sepatu' && $request->jumlah_sepatu) {
+            $harga_total = $layanan->harga * $request->jumlah_sepatu;
+        } elseif ($layanan->jenis == 'Laundry_Lainnya' && $request->jumlah_lainnya) {
+            $harga_total = $layanan->harga * $request->jumlah_lainnya;
+        }
+
+        // Simpan ke tabel pesanann
+        Pesanan::create([
+            'kode_pesanan' => '#ORD-' . rand(1000, 9999),
+            'customernk_id' => $customer->id,
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'no_telepon' => $request->no_telepon,
+
+            'layanann_id' => $layanan->id,
+            'layanan_kiloan' => $layanan->jenis == 'Laundry_Kiloan' ? $layanan->nama_layanan : null,
+            'berat' => $request->berat,
+
+            'layanan_satuan' => $layanan->jenis == 'Laundry_Satuan' ? $layanan->nama_layanan : null,
+            'jumlah_satuan' => $request->jumlah_satuan,
+
+            'layanan_sepatu' => $layanan->jenis == 'Laundry_sepatu' ? $layanan->nama_layanan : null,
+            'jumlah_sepatu' => $request->jumlah_sepatu,
+
+            'layanan_lainnya' => $layanan->jenis == 'Laundry_Lainnya' ? $layanan->nama_layanan : null,
+            'jumlah_lainnya' => $request->jumlah_lainnya,
+
+            'harga_total' => $harga_total,
+            'status_pembayaran' => $request->status_pembayaran,
+            'status' => $request->status,
+            'tanggal_masuk' => now(),
+            'estimasi_selesai' => $request->estimasi_selesai,
+        ]);
+
+        return redirect()->route('pesanan.index')->with('success', 'Pesanan berhasil disimpan.');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Terjadi kesalahan: ' . $e->getMessage()]);
+    }
+}

@@ -1,0 +1,44 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   ENKA Laundry Kasir Login
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-[#c4bcbb] min-h-screen flex flex-col items-center justify-start py-16 px-4">
+  <div class="flex flex-col items-center max-w-md w-full">
+    <img src="{{ asset('images/download.png') }}" alt="Logo NK Laundry" width="120" height="120" class="object-contain"/>
+   <p class="text-gray-800 text-center text-lg mb-12 leading-relaxed">
+    Selamat Datang Kasir ENKA Laundry
+    <br/>
+    Silahkan Masuk untuk melanjutkan
+   </p>
+   <div class="bg-[#c4bcbb] shadow-lg shadow-gray-400 w-full p-8 relative">
+    <h2 class="font-extrabold text-black text-xl mb-8 text-center">
+     Masuk Sebagai Kasir
+    </h2>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-3xl shadow-lg p-6 w-[90%] max-w-[320px] text-center">
+     <p class="text-lg mb-2">
+      Lupa / Reset Password Kasir
+     </p>
+     <p class="text-gray-500 text-sm leading-relaxed">
+      Untuk mereset password kasir, harap meminta owner untuk mereset
+     </p>
+    </div>
+    <button class="mt-24 bg-[#d6336c] text-white font-semibold rounded-full px-6 py-1.5 mx-auto block" type="button">
+     Masuk
+    </button>
+   </div>
+  </div>
+ </body>
+</html>

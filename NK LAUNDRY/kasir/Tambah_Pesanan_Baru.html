@@ -1,0 +1,219 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tambah Pesanan</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-[#f9f7f7] min-h-screen flex justify-center items-start p-4">
+  <main class="bg-white w-full max-w-xs rounded-sm shadow-sm">
+    <header class="bg-[#d8396a] px-6 py-4 flex justify-between items-center">
+      <h1 class="text-white font-extrabold text-lg leading-none">Tambah Pesanan</h1>
+      <button aria-label="Menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+    <form class="p-6 space-y-5">
+      <!-- Nama Pesanan -->
+      <div>
+        <label
+          for="nama-pesanan"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Nama Pesanan</label
+        >
+        <input
+          id="nama-pesanan"
+          type="text"
+          value="Pesanan #ORD-3004"
+          class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 text-base text-[#4a4a4a] focus:outline-none"
+        />
+      </div>
+
+      <!-- Tanggal Masuk -->
+      <div>
+        <label
+          for="tanggal-masuk"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Tanggal Masuk</label
+        >
+        <div class="relative">
+          <input
+            id="tanggal-masuk"
+            type="datetime-local"
+            value="03 April 2025"
+            class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 pr-10 text-base text-[#4a4a4a] focus:outline-none"
+          />
+          <i
+            
+          ></i>
+        </div>
+      </div>
+
+      <!-- Nama Pelanggan -->
+      <div>
+        <label
+          for="nama-pelanggan"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Nama Pelanggan</label
+        >
+        <input
+          id="nama-pelanggan"
+          type="text"
+          value="Siti Aminah"
+          class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 text-base text-gray-600 focus:outline-none"
+        />
+      </div>
+
+      <!-- No Hp -->
+      <div>
+        <label
+          for="no-hp"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >No Hp</label
+        >
+        <input
+          id="no-hp"
+          type="text"
+          value="0822-6576-9856"
+          class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 text-base text-gray-600  focus:outline-none"
+        />
+      </div>
+
+      <!-- Jenis Layanan -->
+      <div>
+        <label
+          for="jenis-layanan"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Jenis Layanan</label
+        >
+        <div class="relative">
+          <select
+            id="jenis-layanan"
+            class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 pr-10 text-base text-gray-600  appearance-none focus:outline-none"
+          >
+            <option>Cuci Lipat</option>
+            <option>Cuci Setrika</option>
+            <option>Setrika</option>
+              <option>BedCover</option>
+                <option>Selimut</option>
+                  <option>Handuk</option>
+                    <option>Sprei</option>
+                      <option>Boneka</option>
+          </select>
+          <i
+            class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none"
+            aria-hidden="true"
+          ></i>
+        </div>
+      </div>
+
+      <!-- Berat/Jumlah -->
+      <div>
+        <label
+          for="berat-jumlah"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Berat/Jumlah</label
+        >
+        <input
+          id="berat-jumlah"
+          type="number"
+          placeholder="10 Kg"
+          value="10 Kg"
+          class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 text-base text-gray-600  focus:outline-none"
+        />
+      </div>
+
+
+ <div>
+        <label
+          for="jenis-layanan"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Varian Parfum</label
+        >
+        <div class="relative">
+           <select
+          id="Var-Parfum"
+          name="Var-Parfum"
+          class="w-full rounded-xl border border-gray-400 text-gray-600 text-sm py-3 px-4 appearance-none pr-10"
+          aria-describedby="Var-Parfum"
+          >
+          <option value="var-a" selected>Varian A</option>
+          <option value="Var-b">Varian B</option>
+          <option value="var-c">Varian C</option>
+          <option value="Var-d">varian D</option>
+        </select>
+          <i
+            class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none"
+            aria-hidden="true"
+          ></i>
+        </div>
+      </div>
+
+
+
+      <!-- Estimasi Selesai -->
+      <div>
+        <label
+          for="estimasi-selesai"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Estimasi Selesai</label
+        >
+        <div class="relative">
+          <input
+            id="estimasi-selesai"
+            type="datetime-local"
+            value="04 Mei 2025 16:00"
+            class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 pr-10 text-base text-[#4a4a4a] focus:outline-none"
+          />
+          <i
+           
+          ></i>
+        </div>
+      </div>
+
+      <!-- Status Pesanan -->
+      <div>
+        <label
+          for="status-pesanan"
+          class="block text-[#8a8a8a] text-sm mb-1 cursor-text"
+          >Status Pesanan</label
+        >
+        <div class="relative">
+          <select
+            id="status-pesanan"
+            class="w-full rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] border border-gray-400 px-4 py-2 pr-10 text-base text-[#4a4a4a] appearance-none focus:outline-none"
+          >
+            <option>Belum Diproses</option>
+            <option>Sedang Diproses</option>
+            <option>Selesai</option>
+          </select>
+          <i
+            class="fas fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 pointer-events-none"
+            aria-hidden="true"
+          ></i>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full bg-[#d8396a] text-white font-extrabold text-base py-3 rounded-l-[20px] rounded-tr-[20px] rounded-br-[20px] hover:bg-[#c22f5a] transition-colors"
+      >
+        SIMPAN
+      </button>
+    </form>
+  </main>
+</body>
+</html>

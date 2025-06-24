@@ -1,0 +1,140 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Karyawan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+ </head>
+ <body class="bg-white min-h-screen">
+  <header class="bg-[#d6336c] flex justify-between items-center px-5 py-4">
+   <h1 class="text-white font-bold text-xl">
+    Karyawan
+   </h1>
+   <button aria-label="Menu" class="text-white text-2xl focus:outline-none">
+    <i class="fas fa-bars">
+    </i>
+   </button>
+  </header>
+  <main class="p-5">
+   <form class="mb-3">
+    <input aria-label="Cari nama karyawan" class="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-600 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#d6336c]" placeholder="Cari nama karyawan" type="search"/>
+   </form>
+   <button class="mb-5 bg-[#d6336c] text-white rounded-md px-4 py-2 text-sm font-normal" type="button">
+    Tambah Karyawan
+   </button>
+   <section class="space-y-4">
+    <!-- Confirmation modal -->
+    <div aria-describedby="confirm-desc" aria-labelledby="confirm-title" aria-modal="true" class="max-w-xs mx-auto bg-white rounded-lg shadow-lg p-5 relative z-10" role="alertdialog">
+     <div aria-hidden="true" class="flex justify-center mb-2 text-[#d6336c] text-xl">
+      <i class="fas fa-exclamation-triangle">
+      </i>
+     </div>
+     <h2 class="text-center text-[#3b49df] font-semibold mb-3" id="confirm-title">
+      Konfirmasi
+     </h2>
+     <p class="text-center text-gray-600 mb-5 text-sm leading-relaxed" id="confirm-desc">
+      Apakah anda yakin ingin menghapus karyawan ini?
+     </p>
+     <div class="flex justify-center gap-5">
+      <button class="bg-[#d6336c] text-white rounded-full px-6 py-1 text-sm font-semibold" type="button">
+       Ya
+      </button>
+      <button class="bg-[#d6336c] text-white rounded-full px-6 py-1 text-sm font-semibold" type="button">
+       Batal
+      </button>
+     </div>
+    </div>
+    <!-- Employee cards -->
+    <article class="flex items-center justify-between border border-gray-300 rounded-md p-3">
+     <div class="flex items-center gap-3">
+      <img alt="Avatar of a woman with brown hair wearing a red top, 40 by 40 pixels" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/bed0ae0d-9a4a-407e-e5e6-773637e78e86.jpg" width="40"/>
+      <div class="text-sm font-semibold text-gray-900">
+       <p> Siti Aminah<p class="text-xs text-gray-600">
+        0822-6576-9856
+       </p></p> 
+      </div>
+     </div>
+     <button aria-label="More options" class="text-gray-700 text-xl focus:outline-none">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+    </article>
+    <article class="flex items-center justify-between border border-gray-300 rounded-md p-3">
+     <div class="flex items-center gap-3">
+      <img alt="Avatar of a woman with brown hair wearing a red top, 40 by 40 pixels" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/bed0ae0d-9a4a-407e-e5e6-773637e78e86.jpg" width="40"/>
+      <div class="text-sm font-semibold text-gray-900">
+      <p> Siti Aminah<p class="text-xs text-gray-600">
+        0822-6576-9856
+       </p></p> 
+      </div>
+     </div>
+     <button aria-label="More options" class="text-gray-700 text-xl focus:outline-none">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+    </article>
+    <article class="flex items-center justify-between border border-gray-300 rounded-md p-3">
+     <div class="flex items-center gap-3">
+      <img alt="Avatar of a woman with brown hair wearing a red top, 40 by 40 pixels" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/bed0ae0d-9a4a-407e-e5e6-773637e78e86.jpg" width="40"/>
+      <div>
+       <p class="text-sm font-semibold text-gray-900">
+        Siti Aminah
+       </p>
+       <p class="text-xs text-gray-600">
+        0822-6576-9856
+       </p>
+      </div>
+     </div>
+     <button aria-label="More options" class="text-gray-700 text-xl focus:outline-none">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+    </article>
+    <article class="flex items-center justify-between border border-gray-300 rounded-md p-3">
+     <div class="flex items-center gap-3">
+      <img alt="Avatar of a woman with brown hair wearing a red top, 40 by 40 pixels" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/bed0ae0d-9a4a-407e-e5e6-773637e78e86.jpg" width="40"/>
+      <div>
+       <p class="text-sm font-semibold text-gray-900">
+        Siti Aminah
+       </p>
+       <p class="text-xs text-gray-600">
+        0822-6576-9856
+       </p>
+      </div>
+     </div>
+     <button aria-label="More options" class="text-gray-700 text-xl focus:outline-none">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+    </article>
+    <article class="flex items-center justify-between border border-gray-300 rounded-md p-3">
+     <div class="flex items-center gap-3">
+      <img alt="Avatar of a woman with brown hair wearing a red top, 40 by 40 pixels" class="rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/bed0ae0d-9a4a-407e-e5e6-773637e78e86.jpg" width="40"/>
+      <div>
+       <p class="text-sm font-semibold text-gray-900">
+        Siti Aminah
+       </p>
+       <p class="text-xs text-gray-600">
+        0822-6576-9856
+       </p>
+      </div>
+     </div>
+     <button aria-label="More options" class="text-gray-700 text-xl focus:outline-none">
+      <i class="fas fa-ellipsis-v">
+      </i>
+     </button>
+    </article>
+   </section>
+  </main>
+ </body>
+</html>

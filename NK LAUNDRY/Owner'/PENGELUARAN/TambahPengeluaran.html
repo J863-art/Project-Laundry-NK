@@ -1,0 +1,75 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Edit Pendapatan
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom font family for the header text */
+    .font-poppins {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="bg-white min-h-screen flex justify-center items-start p-4">
+  <div class="w-full max-w-xs bg-white shadow-sm rounded-sm">
+   <header class="bg-[#d8396e] px-5 py-4 flex justify-between items-center">
+    <h1 class="font-poppins font-bold text-white text-lg leading-none">
+     Edit Pendapatan
+    </h1>
+    <button aria-label="Menu" class="text-white text-2xl focus:outline-none">
+     <i class="fas fa-bars">
+     </i>
+    </button>
+   </header>
+   <form class="p-5 space-y-4">
+    <label class="block">
+     <div class="flex items-center border border-gray-300 rounded-md px-3 py-2 text-gray-700 text-sm">
+      <i class="fas fa-stopwatch mr-3 text-gray-600">
+      </i>
+      <input aria-label="Pesanan" class="w-full bg-transparent focus:outline-none cursor-default" readonly="" type="text" value="Nama Pengeluaran"/>
+     </div>
+    </label>
+    <label class="block">
+     <div class="flex items-center border border-gray-300 rounded-md px-3 py-2 text-gray-700 text-sm">
+      <span class="mr-3 text-gray-600 font-semibold">
+       Rp
+      </span>
+      <input aria-label="Amount" class="w-full bg-transparent focus:outline-none cursor-default" readonly="" type="text" value="Jumlah Pengeluaran"/>
+     </div>
+    </label>
+    <label class="block">
+     <div class="flex items-center border border-gray-300 rounded-md px-3 py-2 text-gray-700 text-sm">
+      <i class="fas fa-pen-nib mr-3 text-gray-600">
+      </i>
+      <input aria-label="Description" class="w-full bg-transparent focus:outline-none cursor-default" readonly="" type="text" value="Keterangan Pengeluaran"/>
+     </div>
+    </label>
+    <label class="block">
+     <div class="flex items-center border border-gray-300 rounded-md px-3 py-2 text-gray-700 text-sm">
+      <i class="fas fa-calendar-alt mr-3 text-gray-600">
+      </i>
+      <input aria-label="Date and time" class="w-full bg-transparent focus:outline-none cursor-default" readonly="" type="text" value="09-05-2025 16:00"/>
+     </div>
+    </label>
+    <p class="text-sm text-black mb-2">
+     Upload Bukti Pemasukan
+    </p>
+    <div class="border border-[#d8396e] rounded-lg w-36 h-36 flex justify-center items-center mx-auto mb-3">
+     <img alt="Pink camera icon on white background representing upload proof of income" class="w-12 h-12" draggable="false" height="48" src="https://storage.googleapis.com/a1aa/image/04edbf18-50ac-4224-8c16-da431b4f25ba.jpg" width="48"/>
+    </div>
+    <button class="block mx-auto border border-[#d8396e] text-[#d8396e] rounded-full px-6 py-1 text-sm font-medium" type="button">
+     Ganti Foto
+    </button>
+    <button class="w-full mt-6 bg-[#d8396e] text-white font-semibold rounded-full py-3 text-center text-sm" type="submit">
+     SIMPAN
+    </button>
+   </form>
+  </div>
+ </body>
+</html>

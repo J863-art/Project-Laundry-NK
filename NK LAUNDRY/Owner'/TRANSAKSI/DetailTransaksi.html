@@ -1,0 +1,84 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Detail Transaksi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex justify-center items-start p-4">
+  <div class="w-full max-w-md border border-gray-200 rounded-sm">
+    <header class="bg-[#d8336d] flex justify-between items-center px-5 py-4">
+      <h1 class="text-white font-extrabold text-lg">Detail Transaksi</h1>
+      <button aria-label="Menu" class="text-white text-2xl focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+    <main class="p-5 text-gray-900 text-sm leading-relaxed">
+      <section class="mb-5">
+        <p class="font-bold mb-1">Info Transaksi</p>
+        <div class="flex justify-between mb-1">
+          <span>Waktu Transaksi</span>
+          <span>30 April 2025 16:00</span>
+        </div>
+        <div class="flex justify-between mb-1">
+          <span>Nama Pesanan</span>
+          <span>Pesanan #ORD-3004</span>
+        </div>
+        <div class="flex justify-between mb-1 items-center">
+          <span>Status Transaksi</span>
+          <span class="bg-[#d8336d] text-white text-xs font-semibold px-3 py-1 rounded-md whitespace-nowrap">Sedang Diproses</span>
+        </div>
+        <div class="flex justify-between">
+          <span>Estimasi Selesai</span>
+          <span>04 Mei 2025 16:00</span>
+        </div>
+      </section>
+      <section class="mb-5">
+        <p class="font-bold mb-1">Info Pelanggan</p>
+        <div class="flex justify-between mb-1">
+          <span>Nama</span>
+          <span>Siti Aminah</span>
+        </div>
+        <div class="flex justify-between">
+          <span>No. Handphone</span>
+          <span>0822-6576-9856</span>
+        </div>
+      </section>
+      <section class="border border-gray-300 rounded-md p-4 mb-8">
+        <div class="mb-4">
+          <p class="font-bold mb-0.5">Layanan Laundry</p>
+          <p>Cuci Lipat</p>
+          <p class="text-xs text-gray-700">10kg x Rp4.000</p>
+          <p class="text-right mt-1">Rp40.000</p>
+        </div>
+        <div>
+          <p class="font-bold mb-0.5">Info Pembayaran</p>
+          <div class="flex justify-between mb-1">
+            <span>Total Transaksi</span>
+            <span>Rp40.000</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span>Status Pembayaran</span>
+            <span class="bg-[#e03125] text-white text-xs font-semibold px-3 py-1 rounded-md whitespace-nowrap">Belum Lunas</span>
+          </div>
+        </div>
+      </section>
+      <div class="flex justify-center">
+        <button class="bg-[#d8336d] text-white font-semibold italic text-sm rounded-md px-10 py-3 focus:outline-none">
+          Kembali
+        </button>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
