@@ -268,7 +268,6 @@ Route::prefix('kasir')->group(function () {
 });
 
 use App\Http\Controllers\KaryawanController;
-
     Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
     Route::get('/karyawan/create', [KaryawanController::class, 'create'])->name('karyawan.create');
     Route::post('/karyawan', [KaryawanController::class, 'store'])->name('karyawan.store');
@@ -278,4 +277,8 @@ use App\Http\Controllers\KaryawanController;
 
 use App\Http\Controllers\KasirDashboardController;
     Route::get('/kasir/dashboard', [KasirDashboardController::class,'index'])->name('kasir.dashboard');
+    Route::put('/kasir/pesanan/{id}/update-status', [KasirDashboardController::class, 'updateStatus'])->name('kasir.pesanan.updateStatus');
     Route::get('/owner/dashboard', [KasirDashboardController::class,'indexowner'])->name('owner.dashboard');
+
+
+

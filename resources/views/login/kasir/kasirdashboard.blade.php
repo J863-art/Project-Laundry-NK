@@ -127,32 +127,68 @@
 </section>
 
 
-      <!-- Pesanan Terbaru -->
-      <section class="bg-white rounded-xl p-6 mt-6">
-  <h2 class="font-extrabold text-lg mb-4">Pesanan Terbaru</h2>
+      <!-- (Bagian atas tidak diubah) -->
 
-  @forelse ($latestOrders as $o)
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0 mb-3 last:mb-0">
-      <div>
-        <p class="font-extrabold">{{ $o->nama_pelanggan }}</p>
-        <p class="text-gray-600 text-sm">#{{ $o->kode_pesanan }}</p>
-      </div>
+    <!-- Pesanan Terbaru -->
+    <section class="bg-white rounded-xl p-6 mt-6">
+    <h2 class="font-extrabold text-lg mb-4">Pesanan Terbaru</h2>
 
-      <span class="text-xs font-medium px-3 py-1 rounded-full whitespace-nowrap self-start sm:self-auto
-            {{ match($o->status) {
-                'selesai'          => 'bg-[#d1f5e4] text-[#1f9254]',
-                'sedang_diproses'  => 'bg-[#fff4d1] text-[#925e1f]',
-                default            => 'bg-[#e6f0ef] text-[#5a7a77]',
-            } }}">
-        {{ Str::headline($o->status) }}
-      </span>
+    <form method="GET" class="mb-4">
+  <input
+    type="text"
+    name="search"
+    value="{{ request('search') }}"
+    placeholder="Cari nama pelanggan atau kode pesanan"
+    class="w-full sm:w-64 px-3 py-2 border rounded shadow-sm focus:outline-none focus:ring focus:ring-blue-200 text-sm"
+  />
+  <button type="submit" class="mt-2 sm:mt-0 bg-blue-500 text-white px-3 py-1 rounded text-sm ml-2">
+    Cari
+  </button>
+</form>
 
-      <p class="font-extrabold">Rp{{ number_format($o->harga_total,0,',','.') }}</p>
+
+    @forelse ($latestOrders as $o)
+        <form method="POST" action="{{ route('kasir.pesanan.updateStatus', $o->id) }}" class="mb-3 last:mb-0">
+  @csrf
+  @method('PUT')
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between sm:gap-x-6 space-y-2 sm:space-y-0">
+
+    <!-- Info pelanggan -->
+    <div class="flex-shrink-0">
+      <p class="font-extrabold">{{ $o->nama_pelanggan }}</p>
+      <p class="text-gray-600 text-sm">#{{ $o->kode_pesanan }}</p>
     </div>
-  @empty
-    <p class="text-sm text-gray-500">Belum ada pesanan.</p>
-  @endforelse
-</section>
+
+    <!-- Dropdown status -->
+    <div class="flex items-center space-x-2">
+      <select name="status" class="text-xs px-2 py-1 rounded border">
+        <option value="belum_diproses" {{ $o->status === 'belum_diproses' ? 'selected' : '' }}>Belum Diproses</option>
+        <option value="sedang_diproses" {{ $o->status === 'sedang_diproses' ? 'selected' : '' }}>Sedang Diproses</option>
+        <option value="selesai" {{ $o->status === 'selesai' ? 'selected' : '' }}>Selesai</option>
+      </select>
+
+      <select name="status_pembayaran" class="text-xs px-2 py-1 rounded border">
+        <option value="belum_lunas" {{ $o->status_pembayaran === 'belum_lunas' ? 'selected' : '' }}>Belum Lunas</option>
+        <option value="lunas" {{ $o->status_pembayaran === 'lunas' ? 'selected' : '' }}>Lunas</option>
+      </select>
+
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded">
+        Simpan
+      </button>
+    </div>
+
+    <!-- Harga total -->
+    <p class="font-extrabold whitespace-nowrap">Rp{{ number_format($o->harga_total, 0, ',', '.') }}</p>
+
+    </div>
+    </form>
+
+    @empty
+        <p class="text-sm text-gray-500">Belum ada pesanan.</p>
+    @endforelse
+    </section>
+
+
 
 
       <!-- Grafik Minggu Ini -->
@@ -179,28 +215,104 @@
 
 
   <!-- Modal Informasi User -->
-  <div id="userInfoModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center">
-    <div class="bg-white p-6 rounded-lg w-96 shadow-lg relative">
-      <button onclick="toggleUserInfo()" class="absolute top-2 right-2 text-gray-500 hover:text-red-500">
-        <i class="fas fa-times"></i>
-      </button>
-      <h2 class="text-lg font-bold mb-4">Informasi Pengguna</h2>
-      @auth
-        <p><strong>Nama:</strong> {{ Auth::user()->name }}</p>
-        <p><strong>Email:</strong> {{ Auth::user()->email }}</p>
-        <p><strong>Username:</strong> {{ Auth::user()->username }}</p>
-        <p><strong>No Telp:</strong> {{ Auth::user()->no_telp }}</p>
-        <p><strong>Password (hash):</strong> ********</p>
-        <form method="GET" action="{{ route('logout') }}" class="mt-4">
-          <button type="submit" class="w-full bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700">
-            Logout
-          </button>
-        </form>
-      @else
-        <p>Silakan login terlebih dahulu.</p>
-      @endauth
+<div id="userInfoModal" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 hidden items-center justify-center transition-opacity duration-300 p-4">
+  <div class="bg-white p-6 rounded-xl max-w-md w-full shadow-xl relative animate-fadeIn border border-gray-100">
+    <!-- Tombol Close -->
+    <button onclick="toggleUserInfo()" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 transition-colors duration-200">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+
+    <!-- Header -->
+    <div class="flex items-center mb-6">
+      <div class="bg-gradient-to-r from-pink-500 to-purple-500 p-3 rounded-full shadow-md">
+        <i class="fas fa-user-circle text-white text-2xl"></i>
+      </div>
+      <h2 class="text-xl font-bold text-gray-800 ml-3">Informasi Akun</h2>
     </div>
+
+    <!-- Konten -->
+    @auth
+      <div class="space-y-4 text-gray-700">
+        <div class="flex items-center">
+          <div class="w-8 text-center">
+            <i class="fas fa-user text-pink-500"></i>
+          </div>
+          <div class="border-b border-gray-100 pb-2 flex-1">
+            <div class="text-xs text-gray-400">Nama Lengkap</div>
+            <div class="font-medium">{{ Auth::user()->name }}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <div class="w-8 text-center">
+            <i class="fas fa-envelope text-purple-500"></i>
+          </div>
+          <div class="border-b border-gray-100 pb-2 flex-1">
+            <div class="text-xs text-gray-400">Email</div>
+            <div class="font-medium">{{ Auth::user()->email }}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <div class="w-8 text-center">
+            <i class="fas fa-at text-blue-500"></i>
+          </div>
+          <div class="border-b border-gray-100 pb-2 flex-1">
+            <div class="text-xs text-gray-400">Username</div>
+            <div class="font-medium">{{ Auth::user()->username }}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <div class="w-8 text-center">
+            <i class="fas fa-phone text-green-500"></i>
+          </div>
+          <div class="border-b border-gray-100 pb-2 flex-1">
+            <div class="text-xs text-gray-400">Nomor Telepon</div>
+            <div class="font-medium">{{ Auth::user()->no_telp ?? '-' }}</div>
+          </div>
+        </div>
+
+        <div class="flex items-center">
+          <div class="w-8 text-center">
+            <i class="fas fa-lock text-yellow-500"></i>
+          </div>
+          <div class="pb-2 flex-1">
+            <div class="text-xs text-gray-400">Password</div>
+            <div class="font-mono text-sm text-gray-400">••••••••••</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logout -->
+      <form method="GET" action="{{ route('logout') }}" class="mt-8">
+        @csrf
+        <button type="submit" class="w-full bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 px-4 rounded-lg hover:opacity-90 transition-opacity font-semibold text-sm shadow-md flex items-center justify-center">
+          <i class="fas fa-sign-out-alt mr-2"></i> Keluar Akun
+        </button>
+      </form>
+    @else
+      <div class="text-center py-8">
+        <i class="fas fa-user-lock text-4xl text-gray-300 mb-3"></i>
+        <p class="text-gray-600">Silakan login untuk melihat informasi akun</p>
+        <a href="{{ route('login') }}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors text-sm font-medium">
+          Login Sekarang
+        </a>
+      </div>
+    @endauth
   </div>
+</div>
+
+<!-- Animasi -->
+<style>
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
 
   <!-- Script Toggle -->
   <script>

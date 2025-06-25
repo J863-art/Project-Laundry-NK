@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
 use App\Models\Pesanan;
 use App\Models\Customer;
 use Carbon\Carbon;
+
 
 class KasirDashboardController extends Controller
 {
@@ -32,7 +34,17 @@ class KasirDashboardController extends Controller
                                 ->count();
 
         /* ================== PESANAN TERBARU ================== */
-        $latestOrders = Pesanan::latest()->take(1)->get();
+        $search = request('search');
+
+        $query = Pesanan::query()
+            ->when($search, function ($q) use ($search) {
+                $q->where('nama_pelanggan', 'like', "%{$search}%")
+                ->orWhere('kode_pesanan', 'like', "%{$search}%");
+            });
+
+        $latestOrders = $search ? $query->latest()->get() : $query->latest()->take(5)->get();
+
+
 
         /* ================== DATA GRAFIK MINGGU INI ================== */
         $startWeek = $today->copy()->startOfWeek(Carbon::MONDAY);
@@ -71,6 +83,25 @@ class KasirDashboardController extends Controller
     }
 
 
+    public function updateStatus(Request $request, $id)
+    {
+        $request->validate([
+            'status' => 'required|string',
+            'status_pembayaran' => 'required|string',
+        ]);
+
+        $pesanan = Pesanan::findOrFail($id);
+        $pesanan->status = $request->status;
+        $pesanan->status_pembayaran = $request->status_pembayaran;
+        $pesanan->save();
+
+        return redirect()->back()->with('success', 'Status berhasil diperbarui.');
+    }
+
+
+
+
+
      public function indexowner()
     {
         $today     = Carbon::today();
@@ -95,7 +126,7 @@ class KasirDashboardController extends Controller
                                 ->count();
 
         /* ================== PESANAN TERBARU ================== */
-        $latestOrders = Pesanan::latest()->take(1)->get();
+        $latestOrders = Pesanan::latest()->take(5)->get();
 
         /* ================== DATA GRAFIK MINGGU INI ================== */
         $startWeek = $today->copy()->startOfWeek(Carbon::MONDAY);

@@ -23,16 +23,33 @@
     </header>
 
     <main class="bg-white rounded-b-md border border-t-0 border-gray-200 p-4 space-y-4">
-        <div class="flex justify-end mb-3">
-    <form method="GET" action="{{ route('kasir.pendapatan') }}">
-      <label for="filter" class="mr-2 text-sm text-gray-700 font-medium">Tampilkan:</label>
-      <select name="filter" id="filter" onchange="this.form.submit()"
-        class="rounded-md border-gray-300 text-sm py-1 px-3 focus:ring-[#db2f65] focus:border-[#db2f65]">
-        <option value="pemasukan" {{ request('filter') == 'pemasukan' ? 'selected' : '' }}>Pemasukan (Lunas)</option>
-        <option value="omset" {{ request('filter') == 'omset' ? 'selected' : '' }}>Omset (Semua)</option>
-      </select>
+
+    <div class="flex justify-end mb-3">
+    <form method="GET" action="{{ route('kasir.pendapatan') }}" class="space-x-2 flex">
+        <div>
+        <label for="filter" class="text-sm text-gray-700 font-medium">Tampilkan:</label>
+        <select name="filter" id="filter" onchange="this.form.submit()"
+            class="rounded-md border-gray-300 text-sm py-1 px-3 focus:ring-[#db2f65] focus:border-[#db2f65]">
+            <option value="pemasukan" {{ request('filter') == 'pemasukan' ? 'selected' : '' }}>Pemasukan (Lunas)</option>
+            <option value="omset" {{ request('filter') == 'omset' ? 'selected' : '' }}>Omset (Semua)</option>
+        </select>
+        </div>
+
+        <div>
+        <label for="periode" class="text-sm text-gray-700 font-medium">Periode:</label>
+        <select name="periode" id="periode" onchange="this.form.submit()"
+            class="rounded-md border-gray-300 text-sm py-1 px-3 focus:ring-[#db2f65] focus:border-[#db2f65]">
+            <option value="all" {{ request('periode') == 'all' ? 'selected' : '' }}>Semua</option>
+            <option value="today" {{ request('periode') == 'today' ? 'selected' : '' }}>Harian</option>
+            <option value="week" {{ request('periode') == 'week' ? 'selected' : '' }}>Mingguan</option>
+            <option value="month" {{ request('periode') == 'month' ? 'selected' : '' }}>Bulanan</option>
+            <option value="year" {{ request('periode') == 'year' ? 'selected' : '' }}>Tahunan</option>
+        </select>
+        </div>
     </form>
-  </div>
+    </div>
+
+
       @foreach ($pesanans as $pesanan)
       <article class="border border-gray-200 rounded-md p-4">
         <div class="flex justify-between text-xs text-gray-600 mb-1">
@@ -56,6 +73,11 @@
         <div class="flex items-center gap-2 text-sm mt-1">
             <i class="fas fa-money-bill-wave text-[#4a4a4a]"></i>
             <p class="text-xs font-normal">Metode Pembayaran: {{ $pesanan->metode_pembayaran ?? '-' }}</p>
+        </div>
+
+        <div class="flex items-center gap-2 text-sm mt-1">
+            <i class="fas fa-money-bill-wave text-[#4a4a4a]"></i>
+            <p class="text-xs font-normal">Status Pembayaran: {{ $pesanan->status_pembayaran ?? '-' }}</p>
         </div>
 
         @foreach ($pesanan->detailPesanans as $detail)

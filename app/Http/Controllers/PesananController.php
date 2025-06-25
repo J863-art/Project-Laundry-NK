@@ -9,6 +9,7 @@ use App\Models\DetailPesanan;
 use App\Models\Parfum;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class PesananController extends Controller
 {
@@ -208,7 +209,7 @@ class PesananController extends Controller
                 'jumlah_lainnya.*' => 'nullable|numeric',
 
                 'status_pembayaran'=> 'required|in:belum_lunas,lunas',
-                'metode_pembayaran'=> 'required|in:Qris,Cash',
+                'metode_pembayaran' => 'required|in:qris,cash',
                 'status'           => 'required|in:belum_diproses,sedang_diproses,selesai',
                 'estimasi_selesai' => 'required|date_format:Y-m-d\TH:i',
                 'parfum_id'        => 'nullable|exists:parfums,id',
@@ -504,12 +505,38 @@ class PesananController extends Controller
 
     public function pendapatan(Request $request)
     {
-        $filter = $request->input('filter', 'pemasukan'); // default: pemasukan
+        $filter  = $request->input('filter', 'pemasukan'); // default: pemasukan
+        $periode = $request->input('periode', 'all');      // default: semua
 
         $query = Pesanan::with('layanan')->orderBy('tanggal_masuk', 'desc');
 
+        // Filter berdasarkan status pembayaran
         if ($filter === 'pemasukan') {
             $query->where('status_pembayaran', 'lunas');
+        }
+
+        // Filter berdasarkan periode waktu
+        $now = Carbon::now();
+        switch ($periode) {
+            case 'today':
+                $query->whereDate('tanggal_masuk', $now->toDateString());
+                break;
+            case 'week':
+                $query->whereBetween('tanggal_masuk', [
+                    $now->copy()->startOfWeek()->startOfDay(),  // Senin 00:00:00
+                    $now->copy()->endOfWeek()->endOfDay(),      // Minggu 23:59:59
+                ]);
+                break;
+            case 'month':
+                $query->whereMonth('tanggal_masuk', $now->month)->whereYear('tanggal_masuk', $now->year);
+                break;
+            case 'year':
+                $query->whereYear('tanggal_masuk', $now->year);
+                break;
+            case 'all':
+            default:
+                // tidak ada filter tambahan
+                break;
         }
 
         $pesanans = $query->get();
@@ -520,12 +547,38 @@ class PesananController extends Controller
 
     public function pendapatanowner(Request $request)
     {
-        $filter = $request->input('filter', 'pemasukan'); // default: pemasukan
+        $filter  = $request->input('filter', 'pemasukan'); // default: pemasukan
+        $periode = $request->input('periode', 'all');      // default: semua
 
         $query = Pesanan::with('layanan')->orderBy('tanggal_masuk', 'desc');
 
+        // Filter berdasarkan status pembayaran
         if ($filter === 'pemasukan') {
             $query->where('status_pembayaran', 'lunas');
+        }
+
+        // Filter berdasarkan periode waktu
+        $now = Carbon::now();
+        switch ($periode) {
+            case 'today':
+                $query->whereDate('tanggal_masuk', $now->toDateString());
+                break;
+            case 'week':
+                $query->whereBetween('tanggal_masuk', [
+                    $now->copy()->startOfWeek()->startOfDay(),  // Senin 00:00:00
+                    $now->copy()->endOfWeek()->endOfDay(),      // Minggu 23:59:59
+                ]);
+                break;
+            case 'month':
+                $query->whereMonth('tanggal_masuk', $now->month)->whereYear('tanggal_masuk', $now->year);
+                break;
+            case 'year':
+                $query->whereYear('tanggal_masuk', $now->year);
+                break;
+            case 'all':
+            default:
+                // tidak ada filter tambahan
+                break;
         }
 
         $pesanans = $query->get();

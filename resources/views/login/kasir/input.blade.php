@@ -186,12 +186,13 @@ document.querySelectorAll('.layanan-select')
       <div>
         <label for="metode_pembayaran" class="block text-[#8a8a8a] text-sm mb-1">Metode Pembayaran</label>
         <select name="metode_pembayaran" id="metode_pembayaran" required
-  class="w-full rounded-xl border px-4 py-2 text-base text-[#4a4a4a] border-gray-400 focus:outline-none">
-  <option value="Qris" {{ old('metode_pembayaran') == 'Qris' ? 'selected' : '' }}>Qris</option>
-  <option value="Cash" {{ old('metode_pembayaran') == 'Cash' ? 'selected' : '' }}>Cash</option>
-</select>
-
+          class="w-full rounded-xl border px-4 py-2 text-base text-[#4a4a4a] border-gray-400 focus:outline-none">
+          <option value="cash">Cash</option>
+          <option value="qris">Qris</option>
+        </select>
       </div>
+
+
 
       {{-- Estimasi Selesai (editable) --}}
         <div>

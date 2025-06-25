@@ -29,6 +29,7 @@ class Pesanan extends Model
         'berat',
         'harga_total',
         'status_pembayaran',
+        'metode_pembayaran',
         'status',
         'tanggal_masuk',
         'estimasi_selesai',

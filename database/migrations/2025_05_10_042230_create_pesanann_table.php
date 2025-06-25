@@ -33,7 +33,7 @@ class CreatePesanannTable extends Migration
             $table->decimal('berat', 8, 2)->nullable(); // hanya satu kali, jangan duplikat
             $table->integer('harga_total')->nullable();
             $table->enum('status_pembayaran', ['belum_lunas', 'lunas']);
-            $table->enum('metode_pembayaran', ['Qris', 'Cash']);
+            $table->enum('metode_pembayaran', ['qris', 'cash']);
             $table->enum('status', ['belum_diproses', 'sedang_diproses', 'selesai']);
             $table->dateTime('tanggal_masuk');
             $table->dateTime('estimasi_selesai');
